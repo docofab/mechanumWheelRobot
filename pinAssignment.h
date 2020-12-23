@@ -4,8 +4,8 @@
  * 
  */
 
-#ifndef PIN_ASSIGNMENT
-#define PIN_ASSIGNMENT
+#ifndef PIN_ASSIGNMENT_H
+#define PIN_ASSIGNMENT_H
 
 #define speedPinR 9   //  Front Wheel PWM pin connect Right MODEL-X ENA 
 #define RightMotorDirPin1  22    //Front Right Motor direction pin 1 to Right MODEL-X IN1  (K1)
