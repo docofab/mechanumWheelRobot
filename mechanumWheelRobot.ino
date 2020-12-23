@@ -9,7 +9,8 @@
 */
 #include <Servo.h>
 
-#include "pinAssignment.h"
+#include "src/lib/pinAssignment.h"
+#include "src/lib/debugPrint.h"
 
 #define LPT 2 // scan loop coumter
 
@@ -295,7 +296,7 @@ void setup() {
   pinMode(LeftMotorDirPin1, OUTPUT);
   pinMode(LeftMotorDirPin2, OUTPUT); 
   pinMode(speedPinR, OUTPUT);
-     pinMode(RightMotorDirPin1B, OUTPUT); 
+  pinMode(RightMotorDirPin1B, OUTPUT); 
   pinMode(RightMotorDirPin2B, OUTPUT); 
   pinMode(speedPinLB, OUTPUT);  
  

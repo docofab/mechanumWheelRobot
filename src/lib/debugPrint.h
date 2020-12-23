@@ -23,3 +23,4 @@ void DebugPrint(String str){
     Serial.println(str);
 #endif
 }
+#endif
