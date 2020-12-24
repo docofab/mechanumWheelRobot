@@ -15,27 +15,26 @@
 #include "src/hardWareDriver/servoDriver.h"
 #include "src/hardWareDriver/ultraSonicSenser.h"
 
-#include ""
+#include "src/functionsApi/functionsApi.h"
 
 void setup() {
+    /* motor initilize */
+    motorInitialize();
+    moveStop();//stop move
 
-　/* motor initilize */
-  motorInitialize();
-  stop_Stop();//stop move
+    /*init servo*/
+    servoInit();
 
-  /*init servo*/
-  servoInit();
+    /*init HC-SR04*/
+    ultraSonicSensorInitialize();
 
-  /*init HC-SR04*/
-  ultraSonicSensorInitialize();
-
-  Serial.begin(9600);
+    Serial.begin(9600);
  
-  stop_Stop();//Stop
+    moveStop();//Stop
  
 }
 
 void loop() {
-auto_avoidance();
-// Serial.println( watchsurrounding());
+    auto_avoidance();
+    // Serial.println( watchsurrounding());
 }

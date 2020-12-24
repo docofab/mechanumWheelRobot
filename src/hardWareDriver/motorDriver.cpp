@@ -38,39 +38,7 @@ bool motorHWpinInitilalize(){
   pinMode(LeftMotorDirPin2B, OUTPUT); 
   pinMode(speedPinRB, OUTPUT);
   return true;
-}
-
-void go_Advance()  //Forward
-{
-FR_fwd();
-FL_fwd();
-RR_fwd();
-RL_fwd();
-}
-
-void go_Left()  //Turn left
-{
-FR_fwd();
-FL_bck();
-RR_fwd();
-RL_bck();
-}
-void go_Right()  //Turn right
-{
-FR_bck();
-FL_fwd();
-RR_bck();
-RL_fwd();
-}
-void go_Back()  //Reverse
-{
-FR_bck();
-FL_bck();
-RR_bck();
-RL_bck();
-}
- 
- 
+} 
 
 void stop_Stop()    //Stop
 {
