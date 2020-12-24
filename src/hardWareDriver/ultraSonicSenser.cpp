@@ -14,15 +14,21 @@
 bool ultraSonicSensorInitialize(){
   pinMode(Trig_PIN, OUTPUT); 
   pinMode(Echo_PIN,INPUT); 
+
+  /*init buzzer*/
+  digitalWrite(Trig_PIN,LOW);
+
   return true;
 }
 
 /*detection of ultrasonic distance*/
-
 /**
  * @brief 距離測定(HC-SR04センサー)
  * 
  * @sa https://github.com/sparkfun/HC-SR04_UltrasonicSensor
+ * 
+ * @note 公式と少しコードが違うかも
+ * 
  * @return distance[cm]
  */
 int ultraSonicSensorWatch(){
