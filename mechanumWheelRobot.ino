@@ -12,7 +12,7 @@
 #include "src/lib/pinAssignment.h"
 #include "src/lib/debugPrint.h"
 
-#include "src/hardWareDriver/motorController.h"
+#include "src/hardWareDriver/motorDriver.h"
 
 #define LPT 2 // scan loop coumter
 

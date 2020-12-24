@@ -1,11 +1,11 @@
 /**
- * @file  motorController.cpp
+ * @file  motorDriver.cpp
  * @brief モーターを動作させるものはここに記載
  * 
  * @date 2020/12/24 まずcでファイル分割をかく
  */
 
-#include "motorController.h"
+#include "motorDriver.h"
 
 /**
  * @brief モーター部分の初期化
