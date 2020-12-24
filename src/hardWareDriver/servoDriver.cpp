@@ -9,6 +9,10 @@
 
 Servo head;
 
+/**
+ * @brief サーボモータの初期化
+ * @note : 初期化動作 0度⇒170度⇒90度：
+ */
 void servoInit(){ 
   head.attach(SERVO_PIN); 
   servoWrite(0);
