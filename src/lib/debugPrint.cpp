@@ -13,7 +13,7 @@
  * @sa DEBUG_LOG
  * @return none 
  */
-void DebugLogPrint(String str){
+void DebugLogPrintln(String str){
 //void DebugLogPrint(){
 #if DEBUG_LOG 
     Serial.println(str);
