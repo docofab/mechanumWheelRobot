@@ -12,7 +12,7 @@
 #include "src/lib/pinAssignment.h"
 #include "src/lib/debugPrint.h"
 
-#include "src/api/motorController.h"
+#include "src/hardWareDriver/motorController.h"
 
 #define LPT 2 // scan loop coumter
 
@@ -32,7 +32,6 @@ const int backtime = 300; //Time the robot spends turning (miliseconds)
 
 int thereis;
 Servo head;
-
 
 
 //Meassures distances to the right, left, front, left diagonal, right diagonal and asign them in cm to the variables rightscanval, 
@@ -187,8 +186,10 @@ void setup() {
 
   /*init HC-SR04*/
   ultraSonicSensorInitialize();
+
   /*init buzzer*/
   digitalWrite(Trig_PIN,LOW);
+
   /*init servo*/
   head.attach(SERVO_PIN); 
   head.write(0);
