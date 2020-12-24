@@ -7,8 +7,11 @@
 
 #include <Arduino.h>
 
-#include "ultraSonicSensor.h"
-#include "servoDriver.h"
+#include "./../lib/debugPrint.h"
+#include "./../lib/pinAssignment.h"
+
+#include "./../hardfWareDriver/ultraSonicSensor.h"
+#include "./../hardfWareDriver/servoDriver.h"
 
 #include "functionsApi.h"
 
