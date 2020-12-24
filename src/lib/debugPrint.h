@@ -13,6 +13,6 @@
 */
 #define DEBUG_LOG true
 
-void DebugLogPrint(String str);
+void DebugLogPrintln(String str);
 
 #endif

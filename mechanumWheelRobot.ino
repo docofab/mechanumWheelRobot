@@ -13,7 +13,7 @@
 
 #include "src/hardWareDriver/motorDriver.h"
 #include "src/hardWareDriver/servoDriver.h"
-#include "src/hardWareDriver/ultraSonicSenser.h"
+#include "src/hardWareDriver/ultraSonicSensor.h"
 
 #include "src/functionsApi/functionsApi.h"
 
@@ -35,6 +35,6 @@ void setup() {
 }
 
 void loop() {
-    auto_avoidance();
+    autoAvoidance();
     // Serial.println( watchsurrounding());
 }

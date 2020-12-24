@@ -5,7 +5,11 @@
  * @date 2020/12/24 まずcでファイル分割をかく
  */
 
-#include "./../hardfWareDriver/motorDriver.h"
+#include "./../lib/debugPrint.h"
+#include "./../lib/pinAssignment.h"
+
+#include "./../hardWareDriver/motorDriver.h"
+
 
 void moveAdvance()  //Forward
 {
@@ -38,9 +42,9 @@ void moveBack()  //Reverse
 }
 void moveStop()
 {
-    stop_Stop()
+    stop_Stop();
 }
 
 void moveSetSpeed(int leftFront,int rightFront,int leftBack,int rightBack){
-    set_Motorspeed(int leftFront,int rightFront,int leftBack,int rightBack);
+    set_Motorspeed(leftFront, rightFront, leftBack, rightBack);
 }

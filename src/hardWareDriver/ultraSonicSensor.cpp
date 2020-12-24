@@ -1,11 +1,11 @@
 /**
- * @file  ultraSonicSenser.cpp
+ * @file  ultraSonicSensor.cpp
  * @brief 超音波センサ処理を記載
  * 
  * @date 2020/12/24 まずcでファイル分割をかく
  */
 
-#include "ultraSonicSenser.h"
+#include "ultraSonicSensor.h"
 
 /**
  * @brief 超音波センサ初期化

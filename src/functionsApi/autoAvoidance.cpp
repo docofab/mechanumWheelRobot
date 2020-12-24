@@ -7,6 +7,9 @@
 
 #include <Arduino.h>
 
+#include "./../lib/debugPrint.h"
+#include "./../lib/pinAssignment.h"
+
 #include "functionsApi.h"
 
 #define LPT 2 // scan loop coumter
@@ -17,8 +20,7 @@
 #define BACK_SPEED1  160   //back speed
 #define BACK_SPEED2  90    //back speed
 
-int leftscanval, centerscanval, rightscanval, ldiagonalscanval, rdiagonalscanval;
-const int distancelimit = 30; //distance limit for obstacles in front           
+const int distancelimit = 30; //distance limit for obstacles in front    
 const int sidedistancelimit = 30; //minimum distance in cm to obstacles at both sides (the car will allow a shorter distance sideways)
 int distance;
 int numcycles = 0;
@@ -110,7 +112,7 @@ void autoAvoidance(){
   
   //else  Serial.println(numcycles);
   
-  distance = watch(); // use the watch() function to see if anything is ahead (when the robot is just moving forward and not looking around it will test the distance in front)
+  distance = watchDistance(); // use the watch() function to see if anything is ahead (when the robot is just moving forward and not looking around it will test the distance in front)
   if (distance<distancelimit){ // The robot will just stop if it is completely sure there's an obstacle ahead (must test 25 times) (needed to ignore ultrasonic sensor's false signals)
     DebugLogPrintln("final go back");
 	moveBack();
@@ -118,7 +120,7 @@ void autoAvoidance(){
     delay(backtime);
     ++thereis;
   }
-  
+
   if (distance>distancelimit){
       thereis=0;
   } //Count is restarted

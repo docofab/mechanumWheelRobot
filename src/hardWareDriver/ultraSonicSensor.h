@@ -1,5 +1,5 @@
 /**
- * @file  ultraSonicSenser.h
+ * @file  ultraSonicSensor.h
  * @brief 
  * 
  * @date 

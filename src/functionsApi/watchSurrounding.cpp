@@ -10,10 +10,17 @@
 #include "./../lib/debugPrint.h"
 #include "./../lib/pinAssignment.h"
 
-#include "./../hardfWareDriver/ultraSonicSensor.h"
-#include "./../hardfWareDriver/servoDriver.h"
+#include "./../hardWareDriver/ultraSonicSensor.h"
+#include "./../hardWareDriver/servoDriver.h"
 
 #include "functionsApi.h"
+
+
+
+const int distancelimit = 30; //distance limit for obstacles in front    
+const int sidedistancelimit = 30; //minimum distance in cm to obstacles at both sides (the car will allow a shorter distance sideways)
+int leftscanval, centerscanval, rightscanval, ldiagonalscanval, rdiagonalscanval;
+  
 
 //Meassures distances to the right, left, front, left diagonal, right diagonal and asign them in cm to the variables rightscanval, 
 //leftscanval, centerscanval, ldiagonalscanval and rdiagonalscanval (there are 5 points for distance testing)
@@ -29,7 +36,7 @@ String watchSurrounding(){
     
     obstacle_status  =obstacle_status | B100;
     }
-　servoWrite(120);
+  servoWrite(120);
   delay(100);
   ldiagonalscanval = ultraSonicSensorWatch();
   if(ldiagonalscanval<distancelimit){
@@ -76,4 +83,8 @@ String watchSurrounding(){
   obstacle_str= obstacle_str.substring(1,6);
   
   return obstacle_str; //return 5-character string standing for 5 direction obstacle status
+}
+
+int watchDistance(){
+    ultraSonicSensorWatch();
 }

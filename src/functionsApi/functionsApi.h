@@ -17,6 +17,8 @@
 void   autoAvoidance();
 String watchSurrounding();
 
+int watchDistance();
+
 /* move */
 void moveAdvance();
 void moveLeft();
