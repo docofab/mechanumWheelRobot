@@ -20,8 +20,10 @@ bool ultraSonicSensorInitialize(){
 /*detection of ultrasonic distance*/
 
 /**
- * @brief 距離測定
+ * @brief 距離測定(HC-SR04センサー)
  * 
+ * @sa https://github.com/sparkfun/HC-SR04_UltrasonicSensor
+ * @return distance[cm]
  */
 int ultraSonicSensorWatch(){
   long echo_distance;
