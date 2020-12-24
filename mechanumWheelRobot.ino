@@ -16,7 +16,6 @@
 
 #define LPT 2 // scan loop coumter
 
-
 #define FAST_SPEED  160   //both sides of the motor speed
 #define SPEED  120     //both sides of the motor speed
 #define TURN_SPEED  120   //both sides of the motor speed
@@ -35,19 +34,7 @@ int thereis;
 Servo head;
 
 
-/*detection of ultrasonic distance*/
-int watch(){
-  long echo_distance;
-  digitalWrite(Trig_PIN,LOW);
-  delayMicroseconds(5);                                                                              
-  digitalWrite(Trig_PIN,HIGH);
-  delayMicroseconds(15);
-  digitalWrite(Trig_PIN,LOW);
-  echo_distance=pulseIn(Echo_PIN,HIGH);
-  echo_distance=echo_distance*0.01657; //how far away is the object in cm
- //Serial.println((int)echo_distance);
-  return round(echo_distance);
-}
+
 //Meassures distances to the right, left, front, left diagonal, right diagonal and asign them in cm to the variables rightscanval, 
 //leftscanval, centerscanval, ldiagonalscanval and rdiagonalscanval (there are 5 points for distance testing)
 String watchsurrounding(){
@@ -194,23 +181,22 @@ void auto_avoidance(){
 
 void setup() {
 
+　/* motor initilize */
   motorInitialize();
-
   stop_Stop();//stop move
+
   /*init HC-SR04*/
-  pinMode(Trig_PIN, OUTPUT); 
-  pinMode(Echo_PIN,INPUT); 
+  ultraSonicSensorInitialize();
   /*init buzzer*/
- 
   digitalWrite(Trig_PIN,LOW);
   /*init servo*/
   head.attach(SERVO_PIN); 
-    head.write(0);
-   delay(1000);
-     head.write(170);
-   delay(1000);
+  head.write(0);
+  delay(1000);
+  head.write(170);
+  delay(1000);
   head.write(90);
-   delay(2000);
+  delay(2000);
   
   Serial.begin(9600);
  
