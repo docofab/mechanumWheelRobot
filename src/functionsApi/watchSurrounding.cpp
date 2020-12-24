@@ -25,52 +25,52 @@ String watchSurrounding(){
   int obstacle_status =B100000;
   centerscanval = ultraSonicSensorWatch();
   if(centerscanval<distancelimit){
-    stop_Stop();
+    moveStop();
     
     obstacle_status  =obstacle_status | B100;
     }
-  head.write(120);
+　servoWrite(120);
   delay(100);
   ldiagonalscanval = ultraSonicSensorWatch();
   if(ldiagonalscanval<distancelimit){
-    stop_Stop();
+    moveStop();
     
      obstacle_status  =obstacle_status | B1000;
     }
-  head.write(170); //Didn't use 180 degrees because my servo is not able to take this angle
+  servoWrite(170); //Didn't use 180 degrees because my servo is not able to take this angle
   delay(300);
   leftscanval = ultraSonicSensorWatch();
   if(leftscanval<sidedistancelimit){
-    stop_Stop();
+    moveStop();
     
      obstacle_status  =obstacle_status | B10000;
     }
 
-  head.write(90); //use 90 degrees if you are moving your servo through the whole 180 degrees
+  servoWrite(90); //use 90 degrees if you are moving your servo through the whole 180 degrees
   delay(100);
   centerscanval = ultraSonicSensorWatch();
   if(centerscanval<distancelimit){
-    stop_Stop();
+    moveStop();
     
     obstacle_status  =obstacle_status | B100;
     }
-  head.write(40);
+  servoWrite(40);
   delay(100);
   rdiagonalscanval = ultraSonicSensorWatch();
   if(rdiagonalscanval<distancelimit){
-    stop_Stop();
+    moveStop();
     
     obstacle_status  =obstacle_status | B10;
     }
-  head.write(0);
+  servoWrite(0);
   delay(100);
   rightscanval = ultraSonicSensorWatch();
   if(rightscanval<sidedistancelimit){
-    stop_Stop();
+    moveStop();
     
     obstacle_status  =obstacle_status | 1;
     }
-  head.write(90); //Finish looking around (look forward again)
+  servoWrite(90); //Finish looking around (look forward again)
   delay(300);
   String obstacle_str= String(obstacle_status,BIN);
   obstacle_str= obstacle_str.substring(1,6);
