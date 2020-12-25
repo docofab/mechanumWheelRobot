@@ -15,7 +15,7 @@
 
 #define MOTOR_CONTROLLER "[motorContllerLog]:"
 
-#define DEBUG_MOTOR_OFF false //デバッグの際にここのdefineをtrueにすると駆動系が落ちる
+#define DEBUG_MOTOR_OFF false //デバッグの際にここのdefineをtrueにすると移動用駆動系が落ちる
 
 static int directionFL = true;//true:foward/false:back.
 static int directionFR = true;//true:foward/false:back.
@@ -88,6 +88,15 @@ void moveAdvance()  //Forward
     DebugLogPrintln( MOTOR_CONTROLLER + __LINE__ +String(__func__)+":" +  getSpeedLog());
 }
 
+void moveCurve(int speed_left,int speed_right)
+{
+    moveSetSpeed(speed_left, speed_right, speed_left, speed_right);
+    moveFR_fwd();
+    moveFL_fwd();
+    moveRR_fwd();
+    moveRL_fwd();
+    DebugLogPrintln( MOTOR_CONTROLLER + __LINE__ +String(__func__)+":" +  getSpeedLog());
+}
 void moveTurnLeft()  //Turn left
 {
     moveFR_fwd();

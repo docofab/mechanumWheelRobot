@@ -26,8 +26,8 @@
 #define Echo_PIN    31 // Ultrasonic Echo pin connect to A5
 #define Trig_PIN    30  // Ultrasonic Trig pin connect to A4
 
-#define lineSensorAnalogPin1 2
-#define lineSensorAnalogPin2 3
-#define lineSensorAnalogPin3 4
+#define lineSensorLeftPin 2
+#define lineSensorCenterPin 3
+#define lineSensorRightPin 4
 
 #endif

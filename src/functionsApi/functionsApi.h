@@ -23,9 +23,14 @@ int watchDistance();
 
 /* move */
 void moveAdvance();
-void moveTurnLeft();
-void moveTurnRight();
 void moveBack();
+
+void moveCurve(int speed_left,int speed_right);
+
+void moveTurnRight();
+void moveTurnLeft();
+void moveSharpTurnRight(int speed_left,int speed_right);
+void moveSharpTurnLeft(int speed_left,int speed_right);
 
 void moveRightShift(int speed);
 void moveLeftShift(int speed);

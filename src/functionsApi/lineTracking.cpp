@@ -12,61 +12,69 @@
 
 #include "functionsApi.h"
 
+#define MID_SPEED 150    
+#define HIGH_SPEED 200    
+#define LOW_SPEED  100    
+#define LONG_DELAY_TIME 70 
+#define DELAY_TIME 40 
+#define SHORT_DELAY_TIME 30 
+
 void lineracking()
 {
   String senstr="";
 
-  senstr = getlineSensorValue();
+  senstr = getLineSensorValue();
 
   if ( senstr=="100" )
   {
     DebugLogPrintln(" Shift Left");
-    sharpLeftTurn(LOW_SPEED,MID_SPEED);
+    moveSharpTurnLeft(LOW_SPEED,MID_SPEED);
     //  left_shift(HIGH_SPEED,HIGH_SPEED,HIGH_SPEED,HIGH_SPEED);
     delay(DELAY_TIME);
-    stop_bot();     
+    moveStop();     
   }
    
   if ( senstr=="110" )
   {
     DebugLogPrintln("Slight Shift Left");
-    forward(0,HIGH_SPEED);
+    moveCurve(0,HIGH_SPEED);
     delay(DELAY_TIME);
-    stop_bot(); 
+    moveStop(); 
   }
  
   if (senstr=="010" || senstr=="101"  )
   {
-    // DebugLogPrintln("Forward");
-    forward(MID_SPEED,MID_SPEED);
+    // DebugLogPrintln("moveCurve");
+    moveCurve(MID_SPEED,MID_SPEED);
     delay(DELAY_TIME);
-    stop_bot(); 
+    moveStop(); 
   }
   if (senstr=="011")
   {    
     //DebugLogPrintln("Slight Shift to Right ");
-    forward(HIGH_SPEED,0);
+    moveCurve(HIGH_SPEED,0);
     delay(DELAY_TIME);
-    stop_bot(); 
+    moveStop(); 
   }
   if (senstr=="001")
   {
     //  DebugLogPrintln("Shift to Right");
-    sharpRightTurn(MID_SPEED,LOW_SPEED);
+    moveSharpTurnRight(MID_SPEED,LOW_SPEED);
     //  right_shift(HIGH_SPEED,HIGH_SPEED,HIGH_SPEED,HIGH_SPEED);
     delay(DELAY_TIME);
-    stop_bot();       
+    moveStop();       
   }
   if (senstr=="000"){
-    reverse(MID_SPEED);
+    moveSetAllSpeed(MID_SPEED);
+    moveBack();
     delay(DELAY_TIME/2*3);
-    stop_bot();  
+    moveStop();  
   }
   if (senstr=="111")
   {
     //  DebugLogPrintln("Sharp Right U Turn");
-    sharpRightTurn(MID_SPEED,MID_SPEED);
+    moveSharpTurnRight(MID_SPEED,MID_SPEED);
     delay(DELAY_TIME);
-    stop_bot();     
+    moveStop();     
   }
 }

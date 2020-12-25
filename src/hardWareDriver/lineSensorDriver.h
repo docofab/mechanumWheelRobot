@@ -15,6 +15,6 @@
 #include "./../lib/pinAssignment.h"
 
 bool lineSensorInitialize();
-String getlineSensorValue();
+String getLineSensorValue();
 
 #endif
