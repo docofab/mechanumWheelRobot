@@ -60,7 +60,7 @@ void autoAvoidance(){
         obstacle_sign=="01000" )
     {
       DebugLogPrintln("hand right");
-	  moveRight();
+	    moveTurnRight();
       moveSetSpeed(TURN_SPEED,TURN_SPEED,TURN_SPEED,TURN_SPEED);
       delay(turntime);
       moveStop();
@@ -73,7 +73,7 @@ void autoAvoidance(){
         obstacle_sign=="01010" )
     {
       DebugLogPrintln("hand left");
-      moveLeft();//Turn left
+      moveTurnLeft();//Turn left
       moveSetSpeed(TURN_SPEED,TURN_SPEED,TURN_SPEED,TURN_SPEED);
       delay(turntime);
       moveStop();
@@ -83,8 +83,8 @@ void autoAvoidance(){
          obstacle_sign=="11111"  )
     {
       DebugLogPrintln("hand back left");
-	  moveBack();
-	  moveSetSpeed( BACK_SPEED1,BACK_SPEED2,BACK_SPEED1,BACK_SPEED2);
+	    moveBack();
+	    moveSetSpeed( BACK_SPEED1,BACK_SPEED2,BACK_SPEED1,BACK_SPEED2);
       delay(backtime);
       moveStop();
     }else 
@@ -115,7 +115,7 @@ void autoAvoidance(){
   distance = watchDistance(); // use the watch() function to see if anything is ahead (when the robot is just moving forward and not looking around it will test the distance in front)
   if (distance<distancelimit){ // The robot will just stop if it is completely sure there's an obstacle ahead (must test 25 times) (needed to ignore ultrasonic sensor's false signals)
     DebugLogPrintln("final go back");
-	moveBack();
+	  moveBack();
     moveSetSpeed(BACK_SPEED1,BACK_SPEED2,BACK_SPEED1,BACK_SPEED2);
     delay(backtime);
     ++thereis;

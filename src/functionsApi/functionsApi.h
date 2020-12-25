@@ -14,17 +14,29 @@
 #include "./../lib/debugPrint.h"
 #include "./../lib/pinAssignment.h"
 
+/* function */
 void   autoAvoidance();
-String watchSurrounding();
 
+/* watch */
+String watchSurrounding();
 int watchDistance();
 
 /* move */
 void moveAdvance();
-void moveLeft();
-void moveRight();
+void moveTurnLeft();
+void moveTurnRight();
 void moveBack();
+
+void moveRightShift(int speed);
+void moveLeftShift(int speed);
+
+void moveRightDiagonalBack(int speed);
+void moveRightDiagonalAhead(int speed);
+void moveLeftDiagonalBack(int speed);
+void moveLeftDiagonalAhead(int speed);
+
 void moveStop();
+void moveSetAllSpeed(int speed);
 void moveSetSpeed(int leftFront,int rightFront,int leftBack,int rightBack);
 
 #endif

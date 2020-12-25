@@ -12,58 +12,59 @@
 
 #include "functionsApi.h"
 
-#define SPEED 140    
-#define TURN_SPEED 160    
+#define MOVETEST_SPEED 140    
+#define MOVETEST_TURN_SPEED 160    
+#define MOVETEST_SHIFT_SPEED 200
 
 void moveTest(){
+    moveSetAllSpeed(MOVETEST_SPEED);
+    moveAdvance();
+    delay(1000);
+    moveStop();
+    delay(1000);
+    moveSetAllSpeed(MOVETEST_SPEED);
+    moveBack();
+    delay(1000);
+    moveStop();
+    delay(1000);
+    moveSetAllSpeed(MOVETEST_TURN_SPEED);
+    moveTurnLeft();
+    delay(1000);
+    moveStop();
+    delay(1000);
+    moveSetAllSpeed(MOVETEST_TURN_SPEED);    
+    moveTurnRight();
+    delay(1000);
+    moveStop();
+    delay(1000);
 
-    moveAdvance(SPEED);
-        delay(1000);
-        stop_Stop();
-        delay(1000);
-    
-    moveBack(SPEED);
-        delay(1000);
-        stop_Stop();
-        delay(1000);
+    moveRightShift(MOVETEST_SHIFT_SPEED);//right shift
+    delay(1000);
+    moveStop();
+    delay(1000);
+
+    moveLeftShift(MOVETEST_SHIFT_SPEED); //left shift
+    delay(1000);
+    moveStop();
+    delay(1000);
         
-    moveTrunLeft(TURN_SPEED);
-        delay(1000);
-        stop_Stop();
-        delay(1000);
-        
-    right_turn(TURN_SPEED);
-        delay(1000);
-        stop_Stop();
-        delay(1000);
+    moveLeftDiagonalBack(MOVETEST_SHIFT_SPEED); //left diagonal back
+    delay(1000);
+    moveStop();
+    delay(1000);
     
-    right_shift(200,200,200,200); //right shift
-        delay(1000);
-        stop_Stop();
-        delay(1000);
+    moveRightDiagonalAhead(MOVETEST_SHIFT_SPEED); //right diagonal ahead
+    delay(1000);
+    moveStop();
+    delay(1000);
 
-    left_shift(200,200,200,200); //left shift
-        delay(1000);
-        stop_Stop();
-        delay(1000);
-        
-    left_shift(200,0,200,0); //left diagonal back
-        delay(1000);
-        stop_Stop();
-        delay(1000);
-    
-    right_shift(200,0,200,0); //right diagonal ahead
-        delay(1000);
-        stop_Stop();
-        delay(1000);
+    moveLeftDiagonalAhead(MOVETEST_SHIFT_SPEED); //left diagonal ahead
+    delay(1000);
+    moveStop();
+    delay(1000);
 
-    left_shift(0,200,0,200); //left diagonal ahead
-        delay(1000);
-        stop_Stop();
-        delay(1000);
-
-    right_shift(0,200,0,200); //right diagonal back
-        delay(1000);
-        stop_Stop();
-        delay(1000);
+    moveRightDiagonalBack(MOVETEST_SHIFT_SPEED); //right diagonal back
+    delay(1000);
+    moveStop();
+    delay(1000);
 }
