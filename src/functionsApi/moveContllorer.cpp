@@ -94,6 +94,25 @@ void moveTurnRight()  //Turn right
     moveRL_fwd();
     DebugLogPrintln( MOTOR_CONTROLLER + __LINE__ +String(__func__)+":" +  getSpeedLog());
 }
+
+void moveSharpTurnRight(int speed_left,int speed_right)
+{
+   moveSetSpeed(speed_left, speed_right, speed_left, speed_right);
+   moveRL_fwd();
+   moveRR_bck();
+   moveFR_bck();
+   moveFL_fwd();
+   DebugLogPrintln( MOTOR_CONTROLLER + __LINE__ +String(__func__)+":" +  getSpeedLog());
+}
+void sharpLeftTurn(int speed_left,int speed_right){  
+   moveSetSpeed(speed_left, speed_right, speed_left, speed_right);
+   moveRL_bck();
+   moveRR_fwd();
+   moveFR_fwd();
+   moveFL_bck();
+   DebugLogPrintln( MOTOR_CONTROLLER + __LINE__ +String(__func__)+":" +  getSpeedLog());
+}
+
 void moveBack()  //Reverse
 {
     moveFR_bck();

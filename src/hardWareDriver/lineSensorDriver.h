@@ -14,8 +14,7 @@
 #include "./../lib/debugPrint.h"
 #include "./../lib/pinAssignment.h"
 
-
-
-
+bool lineSensorInitialize();
+String getlineSensorValue();
 
 #endif
