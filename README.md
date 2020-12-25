@@ -31,3 +31,30 @@ https://osoyoo.com/manual/V1.2metal_mecanumcar.pdf
 * [Lesson 3 Line Following Robot Car（ライントレース）](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson3.zip)
 * [Lesson 4 Bluetooth Controlled Imitation Driving（Bluetooth制御）](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson4.zip)
 * [Lesson 5 Wifi Controlled Robot Car（WiFi制御）](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson5.zip)
+
+## Fork後のフォルダ構成
+
+mechanumWheelRobot
+├ src
+│   ├functionApi
+│   │   ├autoAvoidance.cpp
+│   │   ├functionApi.h
+│   │   ├moveContllorer.cpp
+│   │   ├moveContllorer.h
+│   │   ├moveTest.cpp
+│   │   ├watchSurrounding.cpp
+│   ├hardWareDriver
+│   │   ├motorDriver.cpp
+│   │   ├motorDriver.h
+│   │   ├servoDriver.cpp
+│   │   ├servoDriver.h
+│   │   ├ultraSonicSensor.cpp
+│   │   ├ultraSonicSensor.h
+│   ├lib
+│   │   ├debugPrint.cpp
+│   │   ├debugPrint.h
+│   │   ├pinAssignment.h
+├ LICENCE
+├ README.md
+└ mechanumWheelRobot.ino
+         
