@@ -15,7 +15,7 @@
 #include "./../lib/pinAssignment.h"
 
 /* function */
-void   autoAvoidance();
+void autoAvoidance();
 
 /* watch */
 String watchSurrounding();
