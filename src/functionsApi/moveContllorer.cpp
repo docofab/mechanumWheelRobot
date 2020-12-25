@@ -15,6 +15,8 @@
 
 #define MOTOR_CONTROLLER "[motorContllerLog]:"
 
+#define DEBUG_MOTOR_OFF false //デバッグの際にここのdefineをtrueにすると駆動系が落ちる
+
 static int directionFL = true;//true:foward/false:back.
 static int directionFR = true;//true:foward/false:back.
 static int directionRL = true;//true:foward/false:back.
@@ -36,34 +38,42 @@ String getSpeedLog(){
 
 /*fwd_bck ラッパー群　ログ取得のためでしかないので将来的にMotorDriverに移動*/
 void moveFR_fwd(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionFR = true;
     FR_fwd();
 }
 void moveFR_bck(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionFR = false;
     FR_bck();
 }
 void moveFL_fwd(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionFL = true;
     FL_fwd();
 }
 void moveFL_bck(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionFL = false;
     FL_bck();
 }
 void moveRR_fwd(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionRR = true;
     RR_fwd();
 }
 void moveRR_bck(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionRR = false;
     RR_bck();
 }
 void moveRL_fwd(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionRL = true;
     RL_fwd();
 }
 void moveRL_bck(){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     directionRL = false;
     RL_bck();
 }
@@ -189,6 +199,7 @@ void moveSetAllSpeed(int speed){
 }
 
 void moveSetSpeed(int leftFront,int rightFront,int leftBack,int rightBack){
+    if(DEBUG_MOTOR_OFF){DebugLogPrintln("Now DebugMotorOff...") ; return;}
     speedFL = leftFront;
     speedFR = rightFront;
     speedRL = leftBack;
