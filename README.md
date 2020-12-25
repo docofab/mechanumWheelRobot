@@ -34,27 +34,28 @@ https://osoyoo.com/manual/V1.2metal_mecanumcar.pdf
 
 ## Fork後のフォルダ構成
 
+```
 mechanumWheelRobot
 ├ src
-│   ├functionApi
+│   ├functionApi　   //機能を記載(ロボット全体の動きが責務)
 │   │   ├autoAvoidance.cpp
 │   │   ├functionApi.h
 │   │   ├moveContllorer.cpp
 │   │   ├moveContllorer.h
 │   │   ├moveTest.cpp
 │   │   ├watchSurrounding.cpp
-│   ├hardWareDriver
+│   ├hardWareDriver //モーター、センサの駆動・値取得を記載（動きとセンサ値が責務）
 │   │   ├motorDriver.cpp
 │   │   ├motorDriver.h
 │   │   ├servoDriver.cpp
 │   │   ├servoDriver.h
 │   │   ├ultraSonicSensor.cpp
 │   │   ├ultraSonicSensor.h
-│   ├lib
+│   ├lib　　　　　　 //ピンアサイン・デバッグ出力を記載（全体で共通に用いる便利関数、定義などを記載）
 │   │   ├debugPrint.cpp
 │   │   ├debugPrint.h
 │   │   ├pinAssignment.h
 ├ LICENCE
 ├ README.md
 └ mechanumWheelRobot.ino
-         
+```
