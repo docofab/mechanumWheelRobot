@@ -15,8 +15,6 @@
 
 #include "functionsApi.h"
 
-
-
 const int distancelimit = 30; //distance limit for obstacles in front    
 const int sidedistancelimit = 30; //minimum distance in cm to obstacles at both sides (the car will allow a shorter distance sideways)
 int leftscanval, centerscanval, rightscanval, ldiagonalscanval, rdiagonalscanval;
