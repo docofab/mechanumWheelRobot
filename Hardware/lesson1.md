@@ -40,7 +40,7 @@
 |speedPinRB|11|出力|右後輪の回転数(PWM出力)|
 |RightMotorDirPin1B|5|出力|右後輪の回転方向(Pin1B)|
 |RightMotorDirPin2B |6 |出力|右後輪の回転方向(Pin2B)|
-|LeftMotorDirPin1B| 7|出力|左前輪の回転方向(Pin1B)|
+|LeftMotorDirPin1B| 7|出力|左後輪の回転方向(Pin1B)|
 |LeftMotorDirPin2B |8 |出力|左後輪の回転方向(Pin2B)|
 |speedPinLB| 12|出力|左後輪の回転数(PWM出力)|
 
