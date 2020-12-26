@@ -11,7 +11,7 @@
 
 ## ソースコード
 
-* [metal-2560-lesson1.ino](/Arduino/metal-2560-lesson1.ino)
+* [metal-2560-lesson1.ino](/Arduino/metal-2560-lesson1/metal-2560-lesson1.ino)
 
 ## モータの配置
 
