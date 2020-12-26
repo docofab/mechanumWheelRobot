@@ -23,9 +23,15 @@ void servoInit(){
   delay(2000);
 }
 
+static int servoPosition = 90;
 void servoWrite(int angle){
   if(angle < 0 && 170 < angle ){
       return;
   }
   head.write(angle);
+  servoPosition = angle;
+}
+
+int getServoPosition(){
+  return servoPosition;
 }

@@ -16,5 +16,6 @@
 
 void servoInit();
 void servoWrite(int angle);
+int getServoPosition();
 
 #endif
