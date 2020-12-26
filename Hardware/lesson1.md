@@ -56,6 +56,7 @@
 |-----|------------|-----------------|-----------------|--------|
 |void FR_fwd(int speed)|右前輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
 |void FR_bck(int speed)|右前輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void stop_Stop()|モーターの停止|-|-|0|
 
 ### 右側のモータードライバ（Right MODEL-X）での左前輪制御
 
@@ -63,6 +64,7 @@
 |-----|------------|-----------------|-----------------|--------|
 |void FL_fwd(int speed)|左前輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
 |void FL_bck(int speed)|左前輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void stop_Stop()|モーターの停止|-|-|0|
 
 ### 左側のモータードライバ（Left MODEL-X)での右後輪制御
 
@@ -70,6 +72,7 @@
 |-----|------------|-----------------|-----------------|--------|
 |void RR_fwd(int speed)|右後輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
 |void RR_bck(int speed)|右後輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void stop_Stop()|モーターの停止|-|-|0|
 
 ### 左側のモータードライバ（Left MODEL-X)での左後輪制御
 
@@ -77,3 +80,6 @@
 |-----|------------|-----------------|-----------------|--------|
 |void RL_fwd(int speed)|左後輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
 |void RL_bck(int speed)|左後輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void stop_Stop()|モーターの停止|-|-|0|
+
+
