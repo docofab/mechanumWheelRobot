@@ -44,4 +44,7 @@ void moveStop();
 void moveSetAllSpeed(int speed);
 void moveSetSpeed(int leftFront,int rightFront,int leftBack,int rightBack);
 
+/* DebugFunctions */
+void watchSensorTest();
+void watchSurroundTest();
 #endif
