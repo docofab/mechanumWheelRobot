@@ -20,3 +20,11 @@ void DebugLogPrintln(String str){
     //Serial.println("a");
 #endif
 }
+
+void DebugLogPrint(String str){
+//void DebugLogPrint(){
+#if DEBUG_LOG 
+    Serial.print(str);
+    //Serial.println("a");
+#endif
+}
