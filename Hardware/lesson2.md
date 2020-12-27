@@ -6,7 +6,7 @@
 
 ## ソースコード
 
-* [metal-2560-lesson2.ino](/Arduino/metal-2560-lesson1/metal-2560-lesson2.ino)
+* [metal-2560-lesson2.ino](/Arduino/metal-2560-lesson2/metal-2560-lesson2.ino)
 
 ## Arduinoで使用する出力ピン
 
@@ -32,6 +32,8 @@
 
 ## 超音波センサーで障害物までの距離を図る関数
 
+* ソース中の 0.01657はおよそ1/60。データシートの値とやや食い違いがある。1/58=0.01724
+
 ```
 /*detection of ultrasonic distance*/
 int watch(){
@@ -48,11 +50,11 @@ int watch(){
   digitalWrite(Trig_PIN,LOW);    // TRIGをLOWにする
 
   /* ECHOパルス幅を取得する */
-  echo_distance=pulseIn(Echo_PIN,HIGH); // pulseIn()：信号がHIGHとなっている時間をマイクロ秒で返します
+  echo_distance=pulseIn(Echo_PIN,HIGH); // unsigned long pulseIn()：信号がHIGHとなっている時間をマイクロ秒で返します
   
   echo_distance=echo_distance*0.01657; //how far away is the object in cm
  
-//Serial.println((int)echo_distance);   デバック用。コメントをはすずと距離の値がシリアル出力される。
+//Serial.println((int)echo_distance);  //デバック用。コメントをはすずと距離の値がシリアル出力される。
  
   /* 距離の値を返す */
   return round(echo_distance);   /* round()は四捨五入する関数 */
