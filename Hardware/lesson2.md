@@ -6,7 +6,7 @@
 
 ## ソースコード
 
-* [metal-2560-lesson2.ino](/Arduino/metal-2560-lesson1/metal-2560-lesson2.ino)
+* [metal-2560-lesson2.ino](/Arduino/metal-2560-lesson2/metal-2560-lesson2.ino)
 
 ## Arduinoで使用する出力ピン
 
@@ -54,7 +54,7 @@ int watch(){
   
   echo_distance=echo_distance*0.01657; //how far away is the object in cm
  
-//Serial.println((int)echo_distance);   デバック用。コメントをはすずと距離の値がシリアル出力される。
+//Serial.println((int)echo_distance);  //デバック用。コメントをはすずと距離の値がシリアル出力される。
  
   /* 距離の値を返す */
   return round(echo_distance);   /* round()は四捨五入する関数 */
