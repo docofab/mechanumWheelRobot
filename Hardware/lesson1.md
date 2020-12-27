@@ -91,6 +91,6 @@
 
 ### 全てのモーターを停止
 
-|関数名|モーターの動作|Arduinoの出力設定|
-|-----|------------|---------------|
-|void stop_Stop()|モーターの停止|speedPinLB,speedPinRB,speedPinL,speedPinRを0に設定|
+|関数名|モーターの動作|speedPinLB|speedPinRB|speedPinL|speedPinR|
+|-----|------------|----|----|----|---|
+|void stop_Stop()|モーターの停止|0|0|0|0|
