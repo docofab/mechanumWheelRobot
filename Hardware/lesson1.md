@@ -50,7 +50,7 @@
 |LeftMotorDirPin2B|8|出力|左後輪の回転方向(Pin2B)|
 |speedPinLB|12|出力|左後輪の回転数(PWM出力)|
 
-## モーターの動かし方と対応する関数
+## モーターの基本動作に対応する関数
 
 * speedで指定する値
   * SPEED 140（通常）   
@@ -94,3 +94,22 @@
 |関数名|モーターの動作|speedPinLB|speedPinRB|speedPinL|speedPinR|
 |-----|------------|----|----|----|---|
 |void stop_Stop()|モーターの停止|0|0|0|0|
+
+## ロボット本体の動きを行うための関数
+
+* ロボット本体の動きは、これまであげたモーターの基本動作に対応する関数を組み合わせることで実現する。
+* 同じ車輪に対して前進と後進を同時に指定しないようになっている点がポイント。
+* 真横に動かす場合は各車輪のスピードを変える必要があるので、すべての車輪の速度を個別に指定できるようになっている。
+
+|関数名|ロボットの動作|左後輪を前進 RL_fwd()|右後輪を前進 RR_fwd()|右前輪を前進FR_fwd()|左前輪を前進 FL_fwd()|左後輪を後進 RL_bck()|右後輪を後進 RR_bck()|右前輪を後進 FR_bck()|左前輪を後進 FL_bck()|
+|-----|------------|----|-----|-----|----|----|----|-----|----|
+|void go_advance(int speed)|前進|speed|speed|speed|speed|-|-|-|-|
+|void go_back(int speed)|後進|-|-|-|-|speed|speed|speed|speed|
+|void right_shift(int speed_fl_fwd,int speed_rl_bck ,int speed_rr_fwd,int speed_fr_bck)|右真横|-| speed_rr_fwd|-| speed_fl_fwd|speed_rl_bck|-|speed_fr_bck|
+|void left_shift(int speed_fl_bck,int speed_rl_fwd,int speed_rr_bck,int speed_fr_fwd)|左真横|speed_rl_fwd|-|speed_fr_fwd|-|-|speed_rr_bck|-|speed_fl_bck|
+|void left_turn(int speed)|左前進|-|speed|-|speed|0|-|0|-|
+|void right_turn(int speed)|右前進|speed|-|speed|-|-|0|-|0|
+|void left_back(int speed)|左後退|0|-|0|-|-|speed|-|speed| 
+|void right_back(int speed)|右後退|-|0|-|0|speed|-|speed|-|
+|void clockwise(int speed)|時計回り|speed|-|-|speed|-|speed|speed|-|
+|void countclockwise(int speed)|反時計回り|-|speed|speed|-|speed|-|-|speed|
