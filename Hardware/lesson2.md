@@ -32,6 +32,8 @@
 
 ## 超音波センサーで障害物までの距離を図る関数
 
+* ソース中の 0.01657はおよそ1/60。データシートの値とやや食い違いがある。1/58=0.01724
+
 ```
 /*detection of ultrasonic distance*/
 int watch(){
@@ -48,7 +50,7 @@ int watch(){
   digitalWrite(Trig_PIN,LOW);    // TRIGをLOWにする
 
   /* ECHOパルス幅を取得する */
-  echo_distance=pulseIn(Echo_PIN,HIGH); // pulseIn()：信号がHIGHとなっている時間をマイクロ秒で返します
+  echo_distance=pulseIn(Echo_PIN,HIGH); // unsigned long pulseIn()：信号がHIGHとなっている時間をマイクロ秒で返します
   
   echo_distance=echo_distance*0.01657; //how far away is the object in cm
  
