@@ -6,7 +6,7 @@
 
 ## ソースコード
 
-* [metal-2560-lesson2.ino](/Arduino/metal-2560-lesson2/metal-2560-lesson2.ino)
+* [metal-2560-lesson2.ino](/Arduino/osoyoo/metal-2560-lesson2/metal-2560-lesson2.ino)
 
 ## Arduinoで使用する出力ピン
 
