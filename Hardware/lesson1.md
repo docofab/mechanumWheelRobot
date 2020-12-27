@@ -113,3 +113,54 @@
 |void right_back(int speed)|右後退|-|0|-|0|speed|-|speed|-|
 |void clockwise(int speed)|時計回り|speed|-|-|speed|-|speed|speed|-|
 |void countclockwise(int speed)|反時計回り|-|speed|speed|-|speed|-|-|speed|
+
+## Lesson1の一連の動きを行う関数
+
+* setup() 関数で行う。この関数はArduinoのプログラムを動かした時に最初に一度だけ呼ばれる関数
+
+### void setup()の内容
+
+|ステップ|関数名|動作内容|
+|-|----|-----|
+|1|init_GPIO()|Arduinoのピン出力設定を行う。|
+|2|go_advance(SPEED)|前進|
+|3|delay(1000)|1秒待つ|
+|4|stop_Stop()|モーターを停止|
+|5|delay(1000)|1秒待つ|
+|6|go_back(SPEED)|後進|
+|7|delay(1000)|1秒待つ|
+|8|stop_Stop()|モーターを停止|
+|9|delay(1000)|1秒待つ|
+|10|left_turn(TURN_SPEED)|左前進|
+|11|delay(1000)|1秒待つ|
+|12|stop_Stop()|モーターを停止|
+|13|delay(1000)|1秒待つ|
+|14|right_turn(TURN_SPEED)|右前進|
+|15|delay(1000)|1秒待つ|
+|16|stop_Stop()|モーターを停止|
+|17|delay(1000)|1秒待つ|
+|18|right_shift(200,200,200,200)|右真横移動|
+|19|delay(1000)|1秒待つ|
+|20|stop_Stop()|モーターを停止|
+|21|delay(1000)|1秒待つ|
+|22|left_shift(200,200,200,200)|左真横移動|
+|23|delay(1000)|1秒待つ|
+|24|stop_Stop()|モーターを停止|
+|25|delay(1000)|1秒待つ|
+|26|left_shift(200,0,200,0)|左斜め後進|
+|27|delay(1000)|1秒待つ|
+|28|stop_Stop()|モーターを停止|
+|29|delay(1000)|1秒待つ|
+|30|right_shift(200,0,200,0)|右斜め前進|
+|31|delay(1000)|1秒待つ|
+|32|stop_Stop()|モーターを停止|
+|33|delay(1000)|1秒待つ|
+|34|left_shift(0,200,0,200)|左斜め前進|
+|35|delay(1000)|1秒待つ|
+|36|stop_Stop()|モーターを停止|
+|37|delay(1000)|1秒待つ|
+|38|right_shift(0,200,0,200)|右斜め後進|
+|39|delay(1000)|1秒待つ|
+|40|stop_Stop()|モーターを停止|
+|41|delay(1000)|1秒待つ|
+
