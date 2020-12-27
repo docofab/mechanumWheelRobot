@@ -16,5 +16,6 @@
 
 void servoInit();
 void servoWrite(int angle);
-
+int getServoPosition();
+void servoSmoothWrite(int angle,int division,int delay_mseconds);
 #endif
