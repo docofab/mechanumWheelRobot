@@ -14,9 +14,9 @@
 
 |定数名|Arduinoピン番号|信号の向き|役割|
 |--------|--------------|--------|---|
-|Trig_PIN|30|アナログOUTPUT|HC-SR04のトリガ(A4)|
+|Trig_PIN|30|OUTPUT|HC-SR04のトリガ(A4)|
 |Echo_PIN|31|INPUT|HC-SR04のエコー(A5)|
-|SERVO_PIN|13|サーボモーター(D5)|
+|SERVO_PIN|13|OUTPUT|サーボモーター(D5)|
 
 ## Lesson2で追加するハードウェア
 
