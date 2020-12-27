@@ -14,5 +14,5 @@
 #define DEBUG_LOG true
 
 void DebugLogPrintln(String str);
-
+void DebugLogPrint(String str);
 #endif
