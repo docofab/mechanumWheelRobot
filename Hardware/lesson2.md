@@ -61,3 +61,45 @@ int watch(){
 }
 ```
 
+## 周囲を見渡す関数
+
+### String watchsurrounding()
+
+周囲の距離を測定し、それらをcm単位で変数に代入し、障害物ステータスを生成します。
+
+|距離が代入される変数名|計測方向|障害物ステータス|センサーの方向(サーボモーターの角度)|
+|------------------|-------|-------------|------------------------------|
+|centerscanval|　　正面の距離| XX1XX | 90° |
+|ldiagonalscanval|　左斜め前の距離| X1XXX | 120° |
+|leftscanval　|　　左側の距離| 1XXXX | 170° (180°までサーボが動かなかったため) |
+|rightscanval|     右側の距離| XXXX1 | 0° |
+|rdiagonalscanval|　右斜め前の距離| XXX1X | 40° |
+
+* const int distancelimit = 30; // 前方の障害物までの最小距離（cm）           
+* const int sidedistancelimit = 30; // 両側の障害物までの最小距離（cm）
+
+* const int turntime = 250; //Time the robot spends turning (miliseconds)
+* const int backtime = 300; //Time the robot spends turning (miliseconds)
+
+* 障害物ステータス
+  * 障害物ステータスは2進数で、各ビットが障害物のある方向を示します。（５ビットなので５方向）
+  * たとえば、B101000の最後の5桁は01000です。これは、左斜め前に障害物があることを表し、B100111は正面、右斜め前、右横を意味します。
+  * 処理中でステータスの初期値をB100000と6桁にしているのは、前5桁をゼロ詰めするためと思われます。
+
+B101000
+
+    0  
+  1   0
+0       0
+
+B100111
+
+    1
+  0   1
+0       1
+　
+
+## 障害物を自動で回避する関数
+
+### void auto_avoidance()
+
