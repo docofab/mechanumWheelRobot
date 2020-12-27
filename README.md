@@ -24,7 +24,7 @@ CopyRight www.osoyoo.com
 
 https://osoyoo.com/manual/V1.2metal_mecanumcar.pdf
 
-## 公式サイトから配布されているArduino IDE用のスケッチ (ZIP形式)
+## Arduino IDE用のスケッチ
 
 * [Lesson 1 Basic Robot Car Assembling（基本ロボットカーの組み立て・動作確認）](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson1.zip)
 * [Lesson 2 Obstacle Avoidance Robot Car（障害物回避）](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson2.zip)
