@@ -4,8 +4,8 @@
 //
 
 /* HC-SR04 */
-#define Trig_PIN 6
-#define Echo_PIN 7
+#define Trig_PIN 7
+#define Echo_PIN 6
 
 /*detection of ultrasonic distance*/
 int watch(){
