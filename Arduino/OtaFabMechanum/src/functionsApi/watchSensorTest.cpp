@@ -35,23 +35,24 @@ void watchSurroundTest(){
 
   /* init */
   SCAN_DATA ScanArray[AREA_DIVISION];
+  ScanArray[0].AREA = 10; 
   for(int i=0; i < AREA_DIVISION;i++){
-    ScanArray[i].AREA = i*20;//by 20 degree.
+    ScanArray[i].AREA = ScanArray[0].AREA + i*20;//by 20 degree.
   }
   /* scan */
   if(getServoPosition() <= 90){
     for(int i=0; i < AREA_DIVISION;i++){
-        servoSmoothWrite(ScanArray[i].AREA,2,5);
-        delay(50);
+        servoSmoothWrite(ScanArray[i].AREA,5,1);
+        delay(20);
         ScanArray[i].VALUE = ultraSonicSensorWatch();//by  degree.
-        delay(50);
+        delay(20);
     }
   }else{
     for(int i= AREA_DIVISION-1 ; i >=0 ;i--){
-        servoSmoothWrite(ScanArray[i].AREA,2,5);
-        delay(50);
+        servoSmoothWrite(ScanArray[i].AREA,5,1);
+        delay(20);
         ScanArray[i].VALUE = ultraSonicSensorWatch();//by  degree.
-        delay(50);  
+        delay(20);  
     }
   }
   /* output */
