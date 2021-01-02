@@ -8,6 +8,12 @@
  * CopyRight www.osoyoo.com
 */
 
+#include <ros.h>
+#include <geometry_msgs/Twist.h>
+
+ros::NodeHandle nh;
+ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel", &messageCb);
+
 #include "src/lib/pinAssignment.h"
 #include "src/lib/debugPrint.h"
 
@@ -16,6 +22,45 @@
 #include "src/hardWareDriver/ultraSonicSensor.h"
 
 #include "src/functionsApi/functionsApi.h"
+
+void messageCb(const geometry_msgs::Twist& twist) {
+  const float linear_x = twist.linear.x;
+  const float angle_z = twist.angular.z;
+  if (linear_x > 0.0 && angle_z == 0.0) {
+    // Go forward
+    moveAdvance();
+
+  } else if (linear_x < 0.0 && angle_z == 0.0) {
+    // Go back
+    moveBack();
+
+  } else if (angle_z > 0.0) {
+    if (linear_x == 0) {
+      // Turn left
+      moveTurnLeft();
+    } else if (linear_x > 0) {
+      // Go left forward
+      moveLeftDiagonalAhead(200);
+    } else {
+      // Go right back
+      moveRightDiagonalBack(200);
+    }
+  } else if (angle_z < 0.0) {
+    if (linear_x == 0) {
+      // Turn right
+      moveTurnRight();
+    } else if (linear_x > 0) {
+      // Go right forward
+      moveRightDiagonalAhead(200);
+    } else {
+      // Go left back
+      moveLeftDiagonalBack(200);
+    }
+  } else {
+    // stop
+    moveStop();
+  }
+}
 
 void setup() {
     /* motor initilize */
@@ -28,13 +73,17 @@ void setup() {
     /*init HC-SR04*/
     ultraSonicSensorInitialize();
 
-    Serial.begin(9600);
+    nh.getHardware()->setBaud(115200);
+    nh.initNode();
+    nh.subscribe(sub);
  
     moveStop();//Stop
  
 }
 
 void loop() {
-    autoAvoidance();
+   // autoAvoidance();
     // Serial.println( watchsurrounding());
+    nh.spinOnce();
+    delay(1);
 }
