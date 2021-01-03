@@ -104,5 +104,81 @@ int watch(){
 
 ### void auto_avoidance()
 
-* const int turntime = 250; //Time the robot spends turning (miliseconds)
-* const int backtime = 300; //Time the robot spends turning (miliseconds)
+* 定数および変数
+  * #define LPT 2 // scan loop counter
+  * int numcycles = 0;
+  * const int turntime = 250; //Time the robot spends turning (miliseconds)
+  * const int backtime = 300; //Time the robot spends turning (miliseconds)
+  * int thereis; // 障害物を検知した回数を記録するカウンタ
+
+* 関数の入り口
+
+```
+void auto_avoidance(){
+
+  ++numcycles;  // サイクル数を示す変数　最初のサイクル(numcycles=1)の場合は前進する。次のサイクル(numcycles=2)の場合は障害物を確認する。障害物を確認したあとはサイクルをリセットする。
+```
+
+* 監視サイクル時の動き
+
+```
+  if(numcycles >= LPT){ // 監視サイクル時は、周りに何かがあるかどうかを監視します。
+  　stop_Stop();  // 一時的にモーターを停止します。
+    String obstacle_sign=watchsurrounding(); // 5桁のobstruction_signバイナリ値は、5方向の障害物ステータスを意味します
+```
+
+  * 障害物のステータスによって以下の動きをします。
+
+|obstacle_sign| println|speedPinL |speedPinR |speedPinLB |speedPinRB|ロボットの動作|delay| 
+|--|---|---|---|--|--|--|--|--|
+|10000|SLIT right|FAST_SPEED|SPEED|FAST_SPEED|SPEED|go_Advance()|turntime |
+|00001|SLIT LEFT|SPEED|FAST_SPEED|SPEED|FAST_SPEED|go_Advance()|turntime  |
+|11100,01000,11000,10100,01100,00100|hand right|TURN_SPEED|TURN_SPEED|TURN_SPEED|TURN_SPEED|go_Right()|turntime |
+|00010,00111,00011,00101,00110,01010|hand left|TURN_SPEED|TURN_SPEED|TURN_SPEED|TURN_SPEED|go_Left()|turntime|
+|01111,10111,11111|hand back left|BACK_SPEED1|BACK_SPEED2|BACK_SPEED1|BACK_SPEED2|go_Back()|backtime|
+|11011,11101,11110,01110|hand back right|BACK_SPEED2|BACK_SPEED1|BACK_SPEED2|BACK_SPEED1|go_Back()|backtime|
+|00000|no handle|SPEED|SPEED|SPEED|SPEED|go_Advance()|backtime|
+
+  * 障害物が検知できなかった場合(no handle)の時は動作サイクルがリセット（numcycles=0）され、前進サイクルに移行する。
+
+* 前進サイクル時の動き
+
+```
+} else {
+      set_Motorspeed();
+      go_Advance();  // 何も問題がない場合は、上記のgo_Advance()関数で前進します。
+      delay(backtime);
+      stop_Stop();
+    }
+}
+```
+
+* 前方に障害物がないか確認する。
+
+  distance = watch(); // watch()関数を使用して、前方に何かがあるかどうかを確認します。（ロボットが前進しているだけで、周りを見回していない場合は、前方の距離がテストされます）
+  
+  // 前方に障害物があることが完全に確認された場合ロボットは停止します。
+  // 25回トライすることで、超音波センサーの誤検知の影響を無くします。    
+  
+  // 前方に障害物がある場合
+  if (distance < distancelimit){
+    Serial.println("final go back");
+	  go_Back(); // 後進します。
+    set_Motorspeed(BACK_SPEED1,BACK_SPEED2,BACK_SPEED1,BACK_SPEED2);
+    delay(backtime);
+    ++thereis; // 障害物のためバックした回数をカウントします。
+  }
+
+　// 前方に障害物がなかった場合（またが障害物から離れた場合）
+  if (distance > distancelimit){
+    thereis=0;　　// 障害物より離れた場合（回避できた場合）は障害物カウンタをクリアします。
+  }
+
+  // 障害物カウンタが25を超えた場合は、その場で停止します。
+  if (thereis > 25){  //
+    Serial.println("final stop");
+    stop_Stop(); // 障害物で動けないと判断してモーターを停止します。
+    thereis=0;   // 障害物カウンタをクリアします。
+  }
+}
+```
