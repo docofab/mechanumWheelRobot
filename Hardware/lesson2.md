@@ -128,7 +128,7 @@ int watch(){
 
   * 障害物ステータスによって以下の動きをします。
 
-|障害物のステータス(obstacle_sign)| println|speedPinL |speedPinR |speedPinLB |speedPinRB|ロボットの動作|delay| 
+|障害物のステータス(obstacle_sign)| println|speedPinL |speedPinR |speedPinLB |speedPinRB|ロボットの動作|delay|
 |--|---|---|---|--|--|--|--|--|
 |10000|SLIT right|FAST_SPEED|SPEED|FAST_SPEED|SPEED|go_Advance()|turntime |
 |00001|SLIT LEFT|SPEED|FAST_SPEED|SPEED|FAST_SPEED|go_Advance()|turntime  |
