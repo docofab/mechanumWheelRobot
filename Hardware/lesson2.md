@@ -146,7 +146,7 @@ void auto_avoidance(){
 ```
 } else {
       set_Motorspeed();
-      go_Advance();  // 何も問題がない場合は、上記のgo_Advance()関数で前進します。
+      go_Advance();  // 何も問題がない場合は、go_Advance()関数で前進します。
       delay(backtime);
       stop_Stop();
     }
@@ -163,7 +163,7 @@ void auto_avoidance(){
   // 前方に障害物がある場合
   if (distance < distancelimit){
     Serial.println("final go back");
-	  go_Back(); // 後進します。
+	  go_Back(); // 障害物を避けるために後進します。
     set_Motorspeed(BACK_SPEED1,BACK_SPEED2,BACK_SPEED1,BACK_SPEED2);
     delay(backtime);
     ++thereis; // 障害物のためバックした回数をカウントします。
