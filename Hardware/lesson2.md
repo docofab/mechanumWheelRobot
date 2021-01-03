@@ -100,7 +100,9 @@ int watch(){
 0       1
 ```
 
-## 障害物を自動で回避する関数 void auto_avoidance()
+## 障害物を自動で回避する関数
+
+### void auto_avoidance()
 
 * 定数および変数
   * #define LPT 2 // scan loop counter
