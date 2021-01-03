@@ -126,10 +126,10 @@ int watch(){
     // 5桁のobstruction_signバイナリ値は、5方向の障害物ステータスを意味します
 ```
 
-  * 障害物ステータスによって以下の動きをします。
+* 障害物ステータスによって以下の動きをします。
 
-|障害物のステータス(obstacle_sign)| println|speedPinL |speedPinR |speedPinLB |speedPinRB|ロボットの動作|delay|
-|--|---|---|---|--|--|--|--|--|
+|障害物のステータス(obstacle_sign)|println|speedPinL|speedPinR|speedPinLB|speedPinRB|ロボットの動作|delay|
+|---|---|---|---|---|---|---|---|
 |10000|SLIT right|FAST_SPEED|SPEED|FAST_SPEED|SPEED|go_Advance()|turntime |
 |00001|SLIT LEFT|SPEED|FAST_SPEED|SPEED|FAST_SPEED|go_Advance()|turntime  |
 |11100,01000,11000,10100,01100,00100|hand right|TURN_SPEED|TURN_SPEED|TURN_SPEED|TURN_SPEED|go_Right()|turntime |
@@ -138,7 +138,7 @@ int watch(){
 |11011,11101,11110,01110|hand back right|BACK_SPEED2|BACK_SPEED1|BACK_SPEED2|BACK_SPEED1|go_Back()|backtime|
 |00000|no handle|SPEED|SPEED|SPEED|SPEED|go_Advance()|backtime|
 
-  * 障害物が検知できなかった場合(no handle)の時は動作サイクルがリセット（numcycles=0）され、前進サイクルに移行する。
+* 障害物が検知できなかった場合(no handle)の時は動作サイクルがリセット（numcycles=0）され、前進サイクルに移行する。
 
 ### 前進サイクル時の動き
 
