@@ -100,36 +100,33 @@ int watch(){
 0       1
 ```
 
-## 障害物を自動で回避する関数
-
-### void auto_avoidance()
+## 障害物を自動で回避する関数 void auto_avoidance()
 
 * 定数および変数
   * #define LPT 2 // scan loop counter
-  * int numcycles = 0;
+  * int numcycles = 0; // サイクル数を示す変数
   * const int turntime = 250; //Time the robot spends turning (miliseconds)
   * const int backtime = 300; //Time the robot spends turning (miliseconds)
   * int thereis; // 障害物を検知した回数を記録するカウンタ
 
-* 関数の入り口
+* サイクル変数の役割
+  * 関数の頭でループの頭でサイクルを示す変数を1増やす。（++numcycles）
+  * 最初は前進サイクル(numcycles=1)となり前進する。
+  * 次のサイクル(numcycles>=2)で監視サイクルとなり、障害物がないか確認する。障害物があった場合は障害物を回避し、障害物が検知されない場合にサイクル変数をリセット（numcycles=0)し、前進サイクルに移行する。
+  * この結果、前進サイクルと監視サイクルを繰り返す動きになる。
 
-```
-void auto_avoidance(){
-
-  ++numcycles;  // サイクル数を示す変数　最初のサイクル(numcycles=1)の場合は前進する。次のサイクル(numcycles=2)の場合は障害物を確認する。障害物を確認したあとはサイクルをリセットする。
-```
-
-* 監視サイクル時の動き
+### 監視サイクル時の動き
 
 ```
   if(numcycles >= LPT){ // 監視サイクル時は、周りに何かがあるかどうかを監視します。
   　stop_Stop();  // 一時的にモーターを停止します。
-    String obstacle_sign=watchsurrounding(); // 5桁のobstruction_signバイナリ値は、5方向の障害物ステータスを意味します
+    String obstacle_sign=watchsurrounding(); // 障害物ステータスを取得します。
+    // 5桁のobstruction_signバイナリ値は、5方向の障害物ステータスを意味します
 ```
 
-  * 障害物のステータスによって以下の動きをします。
+  * 障害物ステータスによって以下の動きをします。
 
-|obstacle_sign| println|speedPinL |speedPinR |speedPinLB |speedPinRB|ロボットの動作|delay| 
+|障害物のステータス(obstacle_sign)| println|speedPinL |speedPinR |speedPinLB |speedPinRB|ロボットの動作|delay| 
 |--|---|---|---|--|--|--|--|--|
 |10000|SLIT right|FAST_SPEED|SPEED|FAST_SPEED|SPEED|go_Advance()|turntime |
 |00001|SLIT LEFT|SPEED|FAST_SPEED|SPEED|FAST_SPEED|go_Advance()|turntime  |
@@ -141,7 +138,7 @@ void auto_avoidance(){
 
   * 障害物が検知できなかった場合(no handle)の時は動作サイクルがリセット（numcycles=0）され、前進サイクルに移行する。
 
-* 前進サイクル時の動き
+### 前進サイクル時の動き
 
 ```
 } else {
@@ -153,7 +150,7 @@ void auto_avoidance(){
 }
 ```
 
-* 前方に障害物がないか確認する。
+### 監視サイクルまたは前進サイクルが終わった後に、前方に障害物がないか確認する。
 
   distance = watch(); // watch()関数を使用して、前方に何かがあるかどうかを確認します。（ロボットが前進しているだけで、周りを見回していない場合は、前方の距離がテストされます）
   
@@ -169,7 +166,7 @@ void auto_avoidance(){
     ++thereis; // 障害物のためバックした回数をカウントします。
   }
 
-　// 前方に障害物がなかった場合（またが障害物から離れた場合）
+  // 前方に障害物がなかった場合（またが障害物から離れた場合）
   if (distance > distancelimit){
     thereis=0;　　// 障害物より離れた場合（回避できた場合）は障害物カウンタをクリアします。
   }
