@@ -24,6 +24,17 @@ CopyRight www.osoyoo.com
 
 https://osoyoo.com/manual/V1.2metal_mecanumcar.pdf
 
+## Lesson 1
+
+* [Lesson1 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson1/metal-2560-lesson1.ino)
+* [Lesson1 動作解説](/Hardware/lesson1.md)
+
+## Lesson 2
+
+* [Lesson2 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson2/metal-2560-lesson2.ino)
+* [Lesson2 動作解説](/Hardware/lesson2.md)
+
+
 ## オリジナルのArduino IDE用のスケッチ（OSOYOOのサイトにあるZIPファイルへのリンク）
 
 * [Lesson 1 Basic Robot Car Assembling（基本ロボットカーの組み立て・動作確認）](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson1.zip)
