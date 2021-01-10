@@ -28,6 +28,16 @@
     1. モーター駆動電圧：5-35V、制御電圧：5V
     1. 最大定格 40V, 3A, 25W
 
+* モーター [DC Encoder Motor Robotic Car Speed Encoder 9V for Arduino Raspberry Pi Platform DIY](https://osoyoo.store/products/dc-motor-robotic-car-speed-encoder-9v-for-arduino-raspberry-pi-platform-diy?variant=31930889830511)
+  * 特徴
+    1. 標準定格電圧 DC 9.0V
+    1. モーター無負荷時回転数：11500±10% rpm
+    1. ギヤモーター回転数：150±10% rpm
+  * 信号線は6本
+    1. モーター電源/GND
+    1. ホールセンサー電源/GND
+    1. ホールセンサー出力1/出力2   
+
 ## モータの配置
 
 * 上からみた図。
