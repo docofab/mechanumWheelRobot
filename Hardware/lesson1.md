@@ -27,6 +27,8 @@
   * 特徴
     1. モーター駆動電圧：5-35V、制御電圧：5V
     1. 最大定格 40V, 3A, 25W
+  * 使用しているドライバIC
+    * [フルブリッジドライバ L298N](https://akizukidenshi.com/catalog/g/gI-06380/)
 
 * モーター [DC Encoder Motor Robotic Car Speed Encoder 9V for Arduino Raspberry Pi Platform DIY](https://osoyoo.store/products/dc-motor-robotic-car-speed-encoder-9v-for-arduino-raspberry-pi-platform-diy?variant=31930889830511)
   * 特徴
