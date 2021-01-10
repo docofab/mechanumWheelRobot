@@ -38,7 +38,14 @@
   * 信号線は6本
     1. モーター電源/GND
     1. ホールセンサー電源/GND
-    1. ホールセンサー出力1/出力2   
+    1. ホールセンサー出力1/出力2
+
+* 電源
+
+  * 18650リチウムイオンバッテリー 3.7V 2500〜3500mAh 2本
+  * ２本直列に使用しているので電源電圧は7.4Vとなります。
+    * モーターの電源
+    * ArduinoMEGAの電源
 
 ## モータの配置
 
@@ -86,7 +93,7 @@
   * SPEED 140（通常）   
   * TURN_SPEED 160（回転）
   * speedに0を設定するとモーターは停止する。
-* speedの値は[analogwrite()関数](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)の引数になる。
+* speedの値は[analogWrite()関数](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)の引数になる。
 
 ### 右側のモータードライバ（Right MODEL-X）での右前輪制御
 
