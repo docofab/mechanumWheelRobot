@@ -45,8 +45,8 @@ https://osoyoo.com/manual/V1.2metal_mecanumcar.pdf
 
 ## Lesson 5 WiFi制御
 
-* [Lesson5A Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5/metal-2560-lesson5/metal-2560-lesson5A.ino)
-* [Lesson5B Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5/metal-2560-lesson5/metal-2560-lesson5B.ino)
+* [Lesson5A Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5/metal-2560-lesson5A/metal-2560-lesson5A.ino)
+* [Lesson5B Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5/metal-2560-lesson5B/metal-2560-lesson5B.ino)
 
 
 ## OSOYOO公式のArduino IDE用のスケッチ（OSOYOOのサイトにあるZIPファイルへのリンク）
