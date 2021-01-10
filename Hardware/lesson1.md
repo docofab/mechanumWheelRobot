@@ -27,6 +27,8 @@
   * 特徴
     1. モーター駆動電圧：5-35V、制御電圧：5V
     1. 最大定格 40V, 3A, 25W
+  * 使用しているドライバIC
+    * [フルブリッジドライバ L298N](https://akizukidenshi.com/catalog/g/gI-06380/)
 
 * モーター [DC Encoder Motor Robotic Car Speed Encoder 9V for Arduino Raspberry Pi Platform DIY](https://osoyoo.store/products/dc-motor-robotic-car-speed-encoder-9v-for-arduino-raspberry-pi-platform-diy?variant=31930889830511)
   * 特徴
@@ -36,7 +38,14 @@
   * 信号線は6本
     1. モーター電源/GND
     1. ホールセンサー電源/GND
-    1. ホールセンサー出力1/出力2   
+    1. ホールセンサー出力1/出力2
+
+* 電源
+
+  * 18650リチウムイオンバッテリー 3.7V 2500〜3500mAh 2本
+  * ２本直列に使用しているので電源電圧は7.4Vとなります。
+    * モーターの電源
+    * ArduinoMEGAの電源
 
 ## モータの配置
 
@@ -84,7 +93,7 @@
   * SPEED 140（通常）   
   * TURN_SPEED 160（回転）
   * speedに0を設定するとモーターは停止する。
-* speedの値は[analogwrite()関数](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)の引数になる。
+* speedの値は[analogWrite()関数](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)の引数になる。
 
 ### 右側のモータードライバ（Right MODEL-X）での右前輪制御
 
@@ -98,8 +107,8 @@
 
 |関数名|モーターの動作|LeftMotorDirPin1|LeftMotorDirPin2|speedPinL|
 |-----|------------|-----------------|-----------------|--------|
-|void FL_fwd(int speed)|左前輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
-|void FL_bck(int speed)|左前輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void FL_fwd(int speed)|左前輪を前進方向|HIGH|LOW|speedの値(PWM出力)|
+|void FL_bck(int speed)|左前輪を後進方向|LOW|HIGH|speedの値(PWM出力)|
 |-|モーターの停止|-|-|0に設定する|
 
 ### 左側のモータードライバ（Left MODEL-X)での右後輪制御
