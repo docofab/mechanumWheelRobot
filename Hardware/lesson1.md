@@ -13,10 +13,26 @@
 
 * [metal-2560-lesson1.ino](/Arduino/osoyoo/metal-2560-lesson1/metal-2560-lesson1.ino)
 
+## ハードウェア
+
+* マイコン [OSOYOO MEGA2560 R3 Control Board ATMEGA2560-16AU USB Cable (compatible with Arduino)](https://osoyoo.store/products/osoyoo-mega2560-r3-control-board-atmega2560-16au-usb-cable-compatible-with-arduino?variant=31180322078831)
+  * 特徴
+    1. Microcontroller: ATmega2560
+    1. Operating Voltage: 5V
+    1. Digital I/O Pins: 54 (of which 14 provide PWM output)
+    1. Analog Input Pins: 16
+    1. DC Current per I/O Pin: 40 mA
+    1. DC Current for 3.3V Pin: 50 mA
+* モータードライバ [OSOYOO Model-X Motor Driver Module](https://osoyoo.com/2017/08/15/osoyoo-model-x-motor-driver-module/)
+  * 特徴
+    1. モーター駆動電圧：5-35V、制御電圧：5V
+    1. 最大定格 40V, 3A, 25W
+
 ## モータの配置
 
 * 上からみた図。
 * Left Model X, Right Model Xはモータードライバ基板
+)
 * Mがモーター
 
 ```
