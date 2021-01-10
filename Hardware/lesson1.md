@@ -98,8 +98,8 @@
 
 |関数名|モーターの動作|LeftMotorDirPin1|LeftMotorDirPin2|speedPinL|
 |-----|------------|-----------------|-----------------|--------|
-|void FL_fwd(int speed)|左前輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
-|void FL_bck(int speed)|左前輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void FL_fwd(int speed)|左前輪を前進方向|HIGH|LOW|speedの値(PWM出力)|
+|void FL_bck(int speed)|左前輪を後進方向|LOW|HIGH|speedの値(PWM出力)|
 |-|モーターの停止|-|-|0に設定する|
 
 ### 左側のモータードライバ（Left MODEL-X)での右後輪制御
