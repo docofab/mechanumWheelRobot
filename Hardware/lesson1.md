@@ -78,17 +78,20 @@
 
 ## モーターの基本動作に対応する関数
 
+### 回転数の制御方法
+
 * speedで指定する値
   * SPEED 140（通常）   
   * TURN_SPEED 160（回転）
   * speedに0を設定するとモーターは停止する。
+* speedの値は[analogwrite()関数](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)の引数になる。
 
 ### 右側のモータードライバ（Right MODEL-X）での右前輪制御
 
 |関数名|モーターの動作|RightMotorDirPin1|RightMotorDirPin2|speedPinR|
 |-----|------------|-----------------|-----------------|--------|
-|void FR_fwd(int speed)|右前輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
-|void FR_bck(int speed)|右前輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void FR_fwd(int speed)|右前輪を前進方向|HIGH|LOW|speedの値(PWM出力)|
+|void FR_bck(int speed)|右前輪を後進方向|LOW|HIGH|speedの値(PWM出力)|
 |-|モーターの停止|-|-|0に設定する|
 
 ### 右側のモータードライバ（Right MODEL-X）での左前輪制御
@@ -103,16 +106,16 @@
 
 |関数名|モーターの動作|RightMotorDirPin1B|RightMotorDirPin2B|speedPinRB|
 |-----|------------|-----------------|-----------------|--------|
-|void RR_fwd(int speed)|右後輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
-|void RR_bck(int speed)|右後輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void RR_fwd(int speed)|右後輪を前進方向|HIGH|LOW|speedの値(PWM出力)|
+|void RR_bck(int speed)|右後輪を後進方向|LOW|HIGH|speedの値(PWM出力)|
 |-|モーターの停止|-|-|0に設定する|
 
 ### 左側のモータードライバ（Left MODEL-X)での左後輪制御
 
 |関数名|モーターの動作|LeftMotorDirPin1B|LeftMotorDirPin2B|speedPinLB|
 |-----|------------|-----------------|-----------------|--------|
-|void RL_fwd(int speed)|左後輪を前進方向|HIGH|LOW|speedの値(アナログ出力)|
-|void RL_bck(int speed)|左後輪を後進方向|LOW|HIGH|speedの値(アナログ出力)|
+|void RL_fwd(int speed)|左後輪を前進方向|HIGH|LOW|speedの値(PWM出力)|
+|void RL_bck(int speed)|左後輪を後進方向|LOW|HIGH|speedの値(PWM出力)|
 |-|モーターの停止|-|-|0に設定する|
 
 ### 全てのモーターを停止
