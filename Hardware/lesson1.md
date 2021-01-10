@@ -23,6 +23,7 @@
     1. Analog Input Pins: 16
     1. DC Current per I/O Pin: 40 mA
     1. DC Current for 3.3V Pin: 50 mA
+
 * モータードライバ [OSOYOO Model-X Motor Driver Module](https://osoyoo.com/2017/08/15/osoyoo-model-x-motor-driver-module/)
   * 特徴
     1. モーター駆動電圧：5-35V、制御電圧：5V
@@ -41,7 +42,6 @@
     1. ホールセンサー出力1/出力2
 
 * 電源
-
   * 18650リチウムイオンバッテリー 3.7V 2500〜3500mAh 2本
   * ２本直列に使用しているので電源電圧は7.4Vとなります。
     * モーターの電源
