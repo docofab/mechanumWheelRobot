@@ -38,54 +38,54 @@
 /*motor control*/
 void FR_fwd(int speed)  //front-right wheel forward turn
 {
-  digitalWrite(RightMotorDirPin1,HIGH);
-  digitalWrite(RightMotorDirPin2,LOW); 
-  analogWrite(speedPinR,speed);
+  digitalWrite(RightMotorDirPin1, HIGH);
+  digitalWrite(RightMotorDirPin2, LOW); 
+  analogWrite(speedPinR, speed);
 }
 void FR_bck(int speed) // front-right wheel backward turn
 {
-  digitalWrite(RightMotorDirPin1,LOW);
-  digitalWrite(RightMotorDirPin2,HIGH); 
-  analogWrite(speedPinR,speed);
+  digitalWrite(RightMotorDirPin1, LOW);
+  digitalWrite(RightMotorDirPin2, HIGH); 
+  analogWrite(speedPinR, speed);
 }
 void FL_fwd(int speed) // front-left wheel forward turn
 {
-  digitalWrite(LeftMotorDirPin1,HIGH);
-  digitalWrite(LeftMotorDirPin2,LOW);
-  analogWrite(speedPinL,speed);
+  digitalWrite(LeftMotorDirPin1, HIGH);
+  digitalWrite(LeftMotorDirPin2, LOW);
+  analogWrite(speedPinL, speed);
 }
 void FL_bck(int speed) // front-left wheel backward turn
 {
-  digitalWrite(LeftMotorDirPin1,LOW);
-  digitalWrite(LeftMotorDirPin2,HIGH);
-  analogWrite(speedPinL,speed);
+  digitalWrite(LeftMotorDirPin1, LOW);
+  digitalWrite(LeftMotorDirPin2, HIGH);
+  analogWrite(speedPinL, speed);
 }
 
 void RR_fwd(int speed)  //rear-right wheel forward turn
 {
   digitalWrite(RightMotorDirPin1B, HIGH);
-  digitalWrite(RightMotorDirPin2B,LOW); 
-  analogWrite(speedPinRB,speed);
+  digitalWrite(RightMotorDirPin2B, LOW); 
+  analogWrite(speedPinRB, speed);
 }
 void RR_bck(int speed)  //rear-right wheel backward turn
 {
   digitalWrite(RightMotorDirPin1B, LOW);
-  digitalWrite(RightMotorDirPin2B,HIGH); 
-  analogWrite(speedPinRB,speed);
+  digitalWrite(RightMotorDirPin2B, HIGH); 
+  analogWrite(speedPinRB, speed);
 }
 void RL_fwd(int speed)  //rear-left wheel forward turn
 {
-  digitalWrite(LeftMotorDirPin1B,HIGH);
-  digitalWrite(LeftMotorDirPin2B,LOW);
-  analogWrite(speedPinLB,speed);
+  digitalWrite(LeftMotorDirPin1B, HIGH);
+  digitalWrite(LeftMotorDirPin2B, LOW);
+  analogWrite(speedPinLB, speed);
 }
 void RL_bck(int speed)    //rear-left wheel backward turn
 {
-  digitalWrite(LeftMotorDirPin1B,LOW);
-  digitalWrite(LeftMotorDirPin2B,HIGH);
-  analogWrite(speedPinLB,speed);
+  digitalWrite(LeftMotorDirPin1B, LOW);
+  digitalWrite(LeftMotorDirPin2B, HIGH);
+  analogWrite(speedPinLB, speed);
 }
-void forward(int speed_left,int speed_right)
+void forward(int speed_left, int speed_right)
 {
    RL_fwd(speed_left);
    RR_fwd(speed_right);
@@ -99,14 +99,14 @@ void reverse(int speed)
    FR_bck(speed);
    FL_bck(speed); 
 }
-void right_shift(int speed_fl_fwd,int speed_rl_bck ,int speed_rr_fwd,int speed_fr_bck) 
+void right_shift(int speed_fl_fwd, int speed_rl_bck, int speed_rr_fwd, int speed_fr_bck) 
 {
   FL_fwd(speed_fl_fwd); 
   RL_bck(speed_rl_bck); 
   RR_fwd(speed_rr_fwd);
   FR_bck(speed_fr_bck);
 }
-void left_shift(int speed_fl_bck,int speed_rl_fwd ,int speed_rr_bck,int speed_fr_fwd)
+void left_shift(int speed_fl_bck, int speed_rl_fwd, int speed_rr_bck, int speed_fr_fwd)
 {
    FL_bck(speed_fl_bck);
    RL_fwd(speed_rl_fwd);
@@ -142,14 +142,15 @@ void right_back(int speed)
    FR_fwd(0);
    FL_bck(speed); 
 }
-void sharpRightTurn(int speed_left,int speed_right)
+void sharpRightTurn(int speed_left, int speed_right)
 {
    RL_fwd(speed_left);
    RR_bck(speed_right);
    FR_bck(speed_right);
    FL_fwd(speed_left); 
 }
-void sharpLeftTurn(int speed_left,int speed_right){
+void sharpLeftTurn(int speed_left, int speed_right)
+{
    RL_bck(speed_left);
    RR_fwd(speed_right);
    FR_fwd(speed_right);
@@ -157,22 +158,20 @@ void sharpLeftTurn(int speed_left,int speed_right){
 }
 
 
-
- 
 void stop_bot()    //Stop
 {
-  analogWrite(speedPinLB,0);
-  analogWrite(speedPinRB,0);
-  analogWrite(speedPinL,0);
-  analogWrite(speedPinR,0);
+  analogWrite(speedPinLB, 0);
+  analogWrite(speedPinRB, 0);
+  analogWrite(speedPinL, 0);
+  analogWrite(speedPinR, 0);
   digitalWrite(RightMotorDirPin1B, LOW);
-  digitalWrite(RightMotorDirPin2B,LOW);   
+  digitalWrite(RightMotorDirPin2B, LOW);   
   digitalWrite(LeftMotorDirPin1B, LOW);
-  digitalWrite(LeftMotorDirPin2B,LOW); 
+  digitalWrite(LeftMotorDirPin2B, LOW); 
   digitalWrite(RightMotorDirPin1, LOW);
-  digitalWrite(RightMotorDirPin2,LOW);   
+  digitalWrite(RightMotorDirPin2, LOW);   
   digitalWrite(LeftMotorDirPin1, LOW);
-  digitalWrite(LeftMotorDirPin2,LOW); 
+  digitalWrite(LeftMotorDirPin2, LOW); 
   delay(40);
 }
 
@@ -198,7 +197,6 @@ void init_GPIO()
   pinMode(sensor2, INPUT);
   pinMode(sensor3, INPUT);
  
-  
   stop_bot();
 }
 
@@ -208,7 +206,8 @@ void setup()
   Serial.begin(9600);
 }
 
-void loop(){
+void loop()
+{
   tracking();
 }
 
@@ -228,56 +227,59 @@ void tracking()
   Serial.print("\t");
  
   if ( senstr=="100")
-   {
-     Serial.println(" Shift Left");
-      sharpLeftTurn(LOW_SPEED,MID_SPEED);
+  {
+    Serial.println(" Shift Left");
+    sharpLeftTurn(LOW_SPEED,MID_SPEED);
     //  left_shift(HIGH_SPEED,HIGH_SPEED,HIGH_SPEED,HIGH_SPEED);
-      delay(DELAY_TIME);
-      stop_bot();     
-   }
+    delay(DELAY_TIME);
+    stop_bot();     
+  }
    
   if ( senstr=="110" )
   {
-     Serial.println("Slight Shift Left");
-      forward(0,HIGH_SPEED);
-      delay(DELAY_TIME);
-      stop_bot(); 
+    Serial.println("Slight Shift Left");
+    forward(0,HIGH_SPEED);
+    delay(DELAY_TIME);
+    stop_bot(); 
   }
- 
- if (senstr=="010" || senstr=="101"  )
+
+  if (senstr=="010" || senstr=="101")
   {
     // Serial.println("Forward");
-      forward(MID_SPEED,MID_SPEED);
-      delay(DELAY_TIME);
-       stop_bot(); 
+    forward(MID_SPEED, MID_SPEED);
+    delay(DELAY_TIME);
+    stop_bot(); 
   }
  
- if (senstr=="011")
-  {    //Serial.println("Slight Shift to Right ");
-       forward(HIGH_SPEED,0);
-      delay(DELAY_TIME);
-      stop_bot(); 
+  if (senstr=="011")
+  {    
+    // Serial.println("Slight Shift to Right ");
+    forward(HIGH_SPEED, 0);
+    delay(DELAY_TIME);
+    stop_bot(); 
   }
- if (senstr=="001")
- {
- //  Serial.println("Shift to Right");
-   sharpRightTurn(MID_SPEED,LOW_SPEED);
+  
+  if (senstr=="001")
+  {
+    //  Serial.println("Shift to Right");
+    sharpRightTurn(MID_SPEED, LOW_SPEED);
     //  right_shift(HIGH_SPEED,HIGH_SPEED,HIGH_SPEED,HIGH_SPEED);
-      delay(DELAY_TIME);
-      stop_bot();   
-        
- }
-  if (  senstr=="000"){
-        reverse(MID_SPEED);
-   
-      delay(DELAY_TIME/2*3);
-      stop_bot();  
+    delay(DELAY_TIME);
+    stop_bot();
   }
- if (  senstr=="111")
- {
- //  Serial.println("Sharp Right U Turn");
-      sharpRightTurn(MID_SPEED,MID_SPEED);
-      delay(DELAY_TIME);
-      stop_bot();     
- }
+  
+  if (senstr=="000")
+  {
+    reverse(MID_SPEED);
+    delay(DELAY_TIME / 2 * 3);
+    stop_bot();  
+  }
+  
+  if (senstr=="111")
+  {
+    //  Serial.println("Sharp Right U Turn");
+    sharpRightTurn(MID_SPEED, MID_SPEED);
+    delay(DELAY_TIME);
+    stop_bot();     
+  }
 }
