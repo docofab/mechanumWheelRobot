@@ -304,8 +304,10 @@ void auto_avoidance()
     else
     {
       Serial.println("no handle");
-      numcycles=0; //Restart count of cycles 
     }
+
+    // Restart count of cycles
+    numcycles=0;
   } 
   else 
   {
