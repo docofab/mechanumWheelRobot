@@ -114,8 +114,61 @@ int watch(){
 * サイクル変数の役割
   * 関数の頭でループの頭でサイクルを示す変数を1増やす。（++numcycles）
   * 最初は前進サイクル(numcycles=1)となり前進する。
-  * 次のサイクル(numcycles>=2)で監視サイクルとなり、障害物がないか確認する。障害物があった場合は障害物を回避し、障害物が検知されない場合にサイクル変数をリセット（numcycles=0)し、前進サイクルに移行する。
+  * 次のサイクル(numcycles>=2)で監視サイクルとなり、障害物がないか確認する。障害物があった場合は障害物を回避する。障害物が検知されない場合は何もしない。サイクル変数をリセット（numcycles=0)し、前進サイクルに移行する。
   * この結果、前進サイクルと監視サイクルを繰り返す動きになる。
+
+* 関数が長いので主要な部分を抜粋してみた。（もうちょっと関数を分けてもいいと思う）
+
+```
+int numcycles = 0;　　// 初期値
+
+void auto_avoidance()
+{
+  ++numcycles;
+  
+  if(numcycles >= 2) {		// LPT 2 // scan loop coumter
+  　// 周囲を確認するサイクル
+    String obstacle_sign=watchsurrounding();　　// 周囲を見渡す
+  
+    if (障害物があった場合) {
+      // ここで６パターンの動き
+    } else {
+      // 障害物がなかった場合は何もしない。
+	  }
+	
+    numcycles=0;  // 0にして次は前進サイクルが動くようにする。（そうしないと前進サイクルに入らない）
+  
+  } else {
+  　// 前進するサイクル
+  　go_Advance();　// 少し前進する
+  }
+  
+  // 前方確認
+  distance = watch() // watch（）関数を使用して、前方に何かがあるかどうかを確認します
+
+  // 前方に障害物があることが完全に確認された場合、ロボットは停止します（25回テストする必要があります）
+  if (distance < 30) // 距離が30cm以内の場合
+  {
+	  // 後方に動く
+	  ++theresis; // バックした回数を加算
+  }  
+  if (distance > 30) // 距離が30cmより離れている場合
+    thereis=0;  // バックした回数をクリア
+  }
+  if (thereis > 25)　// もし25回以上バックした場合は動けないと判断して停止
+  {
+    // 停止
+	  thereis=0;  バックした回数をクリア
+  }
+}
+
+void loop() 
+{
+  auto_avoidance();  // loop()で永遠に呼び出され続ける。
+  // Serial.println( watchsurrounding());
+}
+
+```
 
 ### 監視サイクル時の動き
 
@@ -138,14 +191,15 @@ int watch(){
 |11011,11101,11110,01110|hand back right|BACK_SPEED2|BACK_SPEED1|BACK_SPEED2|BACK_SPEED1|go_Back()|backtime|
 |00000|no handle|SPEED|SPEED|SPEED|SPEED|go_Advance()|backtime|
 
-* 障害物が検知できなかった場合(no handle)の時は動作サイクルがリセット（numcycles=0）され、前進サイクルに移行する。
+* 障害物が検知できなかった場合(no handle)の時は特に何もしない。
+* サイクル変数をリセット（numcycles=0）し、次は前進サイクルが動くようにする。
 
 ### 前進サイクル時の動き
 
 ```
 } else {
       set_Motorspeed();
-      go_Advance();  // 何も問題がない場合は、go_Advance()関数で前進します。
+      go_Advance();  // go_Advance()関数で前進します。
       delay(backtime);
       stop_Stop();
     }
