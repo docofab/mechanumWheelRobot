@@ -26,33 +26,33 @@ https://osoyoo.com/manual/V1.2metal_mecanumcar.pdf
 
 ## Lesson 1 基本ロボットカーの組み立て・動作確認
 
-* [Lesson1 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson1/metal-2560-lesson1.ino)
+* [Lesson1 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson1-reverse/metal-2560-lesson1-reverse.ino)
 * [Lesson1 動作解説](/Hardware/lesson1.md)
 
 ## Lesson 2 障害物回避
 
-* [Lesson2 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson2/metal-2560-lesson2.ino)
+* [Lesson2 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson2-reverse/metal-2560-lesson2-reverse.ino)
 * [Lesson2 動作解説](/Hardware/lesson2.md)
 
 ## Lesson 3 ライントレース
 
-* [Lesson3 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson3/metal-2560-lesson3.ino)
+* [Lesson3 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson3-reverse/metal-2560-lesson3-reverse.ino)
 * [Lesson3 動作解説](/Hardware/lesson3.md)
 
 ## Lesson 4 Bluetooth制御
 
-* [Lesson4 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson4/metal-2560-lesson4.ino)
+* [Lesson4 Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson4-reverse/metal-2560-lesson4-reverse.ino)
 
 ## Lesson 5 WiFi制御
 
-* [Lesson5A Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5/metal-2560-lesson5A/metal-2560-lesson5A.ino)
-* [Lesson5B Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5/metal-2560-lesson5B/metal-2560-lesson5B.ino)
+* [Lesson5A Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5-reverse/metal-2560-lesson5A/metal-2560-lesson5A-reverse.ino)
+* [Lesson5B Arduinoソースコード](/Arduino/osoyoo/metal-2560-lesson5-reverse/metal-2560-lesson5B/metal-2560-lesson5B-reverse.ino)
 
 
 ## OSOYOO公式のArduino IDE用のスケッチ（OSOYOOのサイトにあるZIPファイルへのリンク）
 
-* [Lesson 1 Basic Robot Car Assembling](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson1.zip)
-* [Lesson 2 Obstacle Avoidance Robot Car](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson2.zip)
-* [Lesson 3 Line Following Robot Car](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson3.zip)
-* [Lesson 4 Bluetooth Controlled Imitation Driving](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson4.zip)
-* [Lesson 5 Wifi Controlled Robot Car](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson5.zip)
+* [Lesson 1 Basic Robot Car Assembling](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson1-reverse.zip)
+* [Lesson 2 Obstacle Avoidance Robot Car](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson2-reverse.zip)
+* [Lesson 3 Line Following Robot Car](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson3-reverse.zip)
+* [Lesson 4 Bluetooth Controlled Imitation Driving](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson4-reverse.zip)
+* [Lesson 5 Wifi Controlled Robot Car](http://osoyoo.com/driver/mecanum_metal_chassis/for_mega2560/metal-2560-lesson5-reverse.zip)
