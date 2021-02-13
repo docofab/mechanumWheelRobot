@@ -43,7 +43,7 @@
   sensorvalue +=s0*4+s1*2+s2;   // sensor1*2^2ビット目 + sensor2*2^1ビット目 + sensor3*2^0ビット目 
 
   senstr= String(sensorvalue,BIN); // sensorvalueを2進数として文字列に変換。
-  senstr=senstr.substring(1,4);    // ４文字だけ文字列を切り出す。
+  senstr=senstr.substring(1,4);    // 2文字めから4文字めまで文字列を切り出す。
 ```
 
 * 使用している主なArduinoライブラリ
