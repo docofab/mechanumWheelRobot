@@ -42,8 +42,8 @@
   int sensorvalue=8;            // 2^3ビット目を常に1にする。 
   sensorvalue +=s0*4+s1*2+s2;   // sensor1*2^2ビット目 + sensor2*2^1ビット目 + sensor3*2^0ビット目 
 
-  senstr= [String(sensorvalue,BIN)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=1418); // sensorvalueを2進数として文字列に変換。
-  senstr=[senstr.substring(1,4)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=1462);    // ４文字だけ文字列を切り出す。
+  senstr= String(sensorvalue,BIN); // sensorvalueを2進数として文字列に変換。
+  senstr=senstr.substring(1,4);    // ４文字だけ文字列を切り出す。
 ```
 
 * 使用している主なArduinoライブラリ
