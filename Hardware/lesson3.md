@@ -6,7 +6,7 @@
 
 ## ソースコード
 
-* [metal-2560-lesson3.ino](/Arduino/osoyoo/metal-2560-lesson3/metal-2560-lesson3.ino)
+* [metal-2560-lesson3-reverse.ino](/Arduino/osoyoo/metal-2560-lesson3-reverse/metal-2560-lesson3-reverse.ino)
 
 ## Lesson3で追加するハードウェア
 
@@ -24,9 +24,35 @@
 
 ※モーター制御系はこれまでのLesson1,2と同じなので省略。
 
-## void tracking()
+## Arduinoのスケッチ
+
+* 参考：[Arduinoライブラリの仕様](http://www.musashinodenpa.com/arduino/ref/index.php)
+
+### void tracking()
 
 * 各センサーの値を読み取り、２進数の文字列に変換する。
+
+```
+  String senstr="";                 // 文字列変数の初期化
+  int s0 = digitalRead(sensor1);    // digitalReadなので0か1かを光センサーから読み取る。
+  int s1 = digitalRead(sensor2);
+  int s2 = digitalRead(sensor3);
+ 
+                                // 全ての組み合わせで処理できるように各センサーの値を2進数に変換する。
+  int sensorvalue=8;            // 2^3ビット目を常に1にする。 
+  sensorvalue +=s0*4+s1*2+s2;   // sensor1*2^2ビット目 + sensor2*2^1ビット目 + sensor3*2^0ビット目 
+
+  senstr= [String(sensorvalue,BIN)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=1418); // sensorvalueを2進数として文字列に変換。
+  senstr=[senstr.substring(1,4)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=1462);    // ４文字だけ文字列を切り出す。
+```
+
+* 使用している主なArduinoライブラリ
+    * [digitalRead(sensor1)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=2075)
+    * [String(sensorvalue,BIN)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=1418)
+    * [senstr.substring(1,4)](http://www.musashinodenpa.com/arduino/ref/index.php?f=0&pos=1462)
+
+
+* 2進数の文字列にしたがってモーターを動かす。
 
 |線の状態|センサー値|ロボットの動作|呼び出されるモーター制御関数|
 |---|---|---|---|
@@ -37,4 +63,8 @@
 |□□■|001|右にシフト|sharpRightTurn(MID_SPEED,LOW_SPEED)|
 |□□□|000|線を見失った|reverse(MID_SPEED)|
 |■■■|111|右に急ターン|sharpRightTurn(MID_SPEED,MID_SPEED)|
+
+## void loop()
+
+* tracking();を繰り返し実行する。
 
