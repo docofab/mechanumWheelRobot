@@ -7,8 +7,8 @@
 
 ## ソースコード
 
-* [metal-2560-lesson5A.ino](/Arduino/osoyoo/metal-2560-lesson5-reverse/metal-2560-lesson5A/metal-2560-lesson5A.ino)　APモード
-* [metal-2560-lesson5B.ino](/Arduino/osoyoo/metal-2560-lesson5-reverse/metal-2560-lesson5B/metal-2560-lesson5B.ino)　STAモード
+* [metal-2560-lesson5A-reverse.ino](/Arduino/osoyoo/metal-2560-lesson5-reverse/metal-2560-lesson5A-reverse/metal-2560-lesson5A-reverse.ino)　APモード
+* [metal-2560-lesson5B-reverse.ino](/Arduino/osoyoo/metal-2560-lesson5-reverse/metal-2560-lesson5B-reverse/metal-2560-lesson5B-reverse.ino)　STAモード
 
 ## 追加するハードウェア
 

@@ -6,7 +6,7 @@
 
 ## ソースコード
 
-* [metal-2560-lesson4.ino](/Arduino/osoyoo/metal-2560-lesson4/metal-2560-lesson4.ino)
+* [metal-2560-lesson4-reverse.ino](/Arduino/osoyoo/metal-2560-lesson4-reverse/metal-2560-lesson4-reverse.ino)
 
 ## Lesson4で追加するハードウェア
 
